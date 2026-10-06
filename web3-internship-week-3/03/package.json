@@ -1,0 +1,25 @@
+{
+  "name": "web3-internship-week-3-frontend",
+  "version": "1.0.0",
+  "description": "Web3 Frontend Client for SkillNFT and SkillVault Smart Contracts",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "npx serve .",
+    "test": "node src/app.js"
+  },
+  "dependencies": {
+    "ethers": "^6.11.1"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  },
+  "keywords": [
+    "solidity",
+    "web3",
+    "ethers",
+    "frontend",
+    "ethereum"
+  ],
+  "author": "Web3 Intern",
+  "license": "MIT"
+}
