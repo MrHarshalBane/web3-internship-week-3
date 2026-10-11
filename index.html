@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skill Set Go — Web3 &amp; Blockchain Internship Week 3 Hub</title>
+  <meta name="description" content="Week 3 Advanced Smart Contracts Portfolio: ERC-721 Skill Certificates (SkillNFT), Inter-Contract Interoperability Vault (SkillVault), Reentrancy Guards, and Web3 Client DApp." />
+
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-logo">
+          <i class="fa-solid fa-shapes"></i>
+        </div>
+        <div class="brand-text">
+          <h1>Skill Set Go <span>Web3 Week 3</span></h1>
+          <span class="badge">ERC-721 NFT &amp; SkillVault</span>
+        </div>
+      </div>
+
+      <div class="nav-stats">
+        <div class="wallet-badge" id="wallet-connect-pill">
+          <span class="pulse-dot"></span> <span id="nav-wallet-text">MetaMask Simulated / Connected</span>
+        </div>
+        <button id="btn-toggle-wallet" class="btn btn-secondary">
+          <i class="fa-solid fa-wallet"></i> <span id="btn-wallet-text">Disconnect Wallet</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="hero-tag">
+        <i class="fa-solid fa-shield-halved"></i> Week 3: ERC-721 NFT Standards • Smart Contract Interoperability • Security Auditing
+      </div>
+      <h2>Advanced Smart Contracts &amp; <span class="highlight-text">Interoperable DApp Lab</span></h2>
+      <p class="hero-desc">
+        Complete deliverables for Week 3 of the Skill Set Go EduTech Blockchain Internship. Featuring decentralized <strong>Skill Certificate NFTs</strong> (<code>SkillNFT.sol</code>), <strong>Multi-Contract Staking &amp; Reward Vaults</strong> (<code>SkillVault.sol</code>), CEI Reentrancy Guards, and client-side Web3 frontend integration.
+      </p>
+
+      <div class="hero-modules">
+        <div class="mod-pill">
+          <i class="fa-solid fa-award"></i>
+          <div>
+            <strong>01. ERC-721 NFT</strong>
+            <span>SkillNFT.sol • IPFS Metadata</span>
+          </div>
+        </div>
+        <div class="mod-pill">
+          <i class="fa-solid fa-vault"></i>
+          <div>
+            <strong>02. SkillVault Engine</strong>
+            <span>Multi-Token Staking &amp; Cross-Contract Calls</span>
+          </div>
+        </div>
+        <div class="mod-pill">
+          <i class="fa-solid fa-globe"></i>
+          <div>
+            <strong>03. Web3 Frontend DApp</strong>
+            <span>Ethers.js v6 • MetaMask Provider</span>
+          </div>
+        </div>
+        <div class="mod-pill">
+          <i class="fa-solid fa-shield-virus"></i>
+          <div>
+            <strong>04. Security Audit</strong>
+            <span>Reentrancy Protection • Automated Tests</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Multi-Column Lab -->
+  <main class="container">
+    <!-- Live Interactive DApp Workspace -->
+    <div class="grid-2col" id="dapp-workspace">
+      <!-- Left: Interactive NFT Minting & Vault Staking -->
+      <div class="card dapp-card">
+        <div class="card-header">
+          <div class="card-title">
+            <i class="fa-solid fa-laptop-code"></i>
+            <h3>Interactive Web3 DApp Dashboard</h3>
+          </div>
+          <span class="badge-live">Sepolia Testnet Live</span>
+        </div>
+
+        <!-- Wallet Status Bar -->
+        <div class="wallet-bar">
+          <div class="wallet-info">
+            <span class="w-label">Active Address</span>
+            <code class="w-addr" id="active-address">0x742d35Cc6634C0532925a3b844Bc454e4438f44e</code>
+          </div>
+          <div class="balances-row">
+            <div class="bal-pill">ETH: <strong id="eth-balance">1.85 ETH</strong></div>
+            <div class="bal-pill">STK Tokens: <strong id="stk-balance">5,000 STK</strong></div>
+            <div class="bal-pill">Badges Owned: <strong id="nft-count">2 NFTs</strong></div>
+          </div>
+        </div>
+
+        <!-- Section 1: Mint Skill NFT Certificate -->
+        <div class="action-card">
+          <div class="action-header">
+            <h4><i class="fa-solid fa-certificate"></i> Mint Skill Certificate NFT (ERC-721)</h4>
+            <span class="tag-nft">SkillNFT.sol</span>
+          </div>
+          <div class="form-group">
+            <label for="nft-uri-input">Decentralized Metadata IPFS URI</label>
+            <input type="text" id="nft-uri-input" value="ipfs://bafybeigdyrzt5sfp7udm7hu76uh7y26nf3efuylqabf3oclgtqy55fbzdi/week3-cert.json">
+          </div>
+          <div class="form-group">
+            <label for="nft-recipient-input">Recipient Address</label>
+            <input type="text" id="nft-recipient-input" value="0x742d35Cc6634C0532925a3b844Bc454e4438f44e">
+          </div>
+          <button class="btn btn-primary" id="btn-mint-nft">
+            <i class="fa-solid fa-stamp"></i> Mint Certificate NFT
+          </button>
+        </div>
+
+        <!-- Section 2: SkillVault Staking & Deposit -->
+        <div class="action-card">
+          <div class="action-header">
+            <h4><i class="fa-solid fa-vault"></i> SkillVault Interoperability Interface</h4>
+            <span class="tag-vault">SkillVault.sol</span>
+          </div>
+          <div class="vault-inputs-row">
+            <div class="form-group">
+              <label for="vault-eth-input">Deposit Native Ether (ETH)</label>
+              <div class="input-btn-group">
+                <input type="number" step="0.01" id="vault-eth-input" value="0.25" min="0.01">
+                <button class="btn btn-secondary btn-sm" id="btn-deposit-eth">Deposit ETH</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="vault-stake-input">Stake Skill Tokens (STK)</label>
+              <div class="input-btn-group">
+                <input type="number" id="vault-stake-input" value="100" min="10">
+                <button class="btn btn-accent btn-sm" id="btn-stake-tokens">Stake Tokens</button>
+              </div>
+            </div>
+          </div>
+          <div class="vault-meta-note">
+            <i class="fa-solid fa-circle-info"></i> Staking &ge; 100 STK triggers automated cross-contract call to <code>SkillNFT.mintNFT()</code> to award a Certificate Badge!
+          </div>
+        </div>
+
+        <!-- Real-time EVM Execution Logs -->
+        <div class="tx-logs-panel">
+          <div class="logs-header">
+            <span><i class="fa-solid fa-terminal"></i> Live DApp Event Stream &amp; State Changes</span>
+            <span class="clear-logs" id="btn-clear-stream">Clear</span>
+          </div>
+          <div class="logs-stream" id="logs-stream">
+            <div class="log-entry success">
+              <span class="log-time">[18:50:02]</span>
+              <span>DApp initialized. Connected to Web3 provider (Sepolia Testnet / ChainID 11155111).</span>
+            </div>
+            <div class="log-entry">
+              <span class="log-time">[18:50:05]</span>
+              <span>SkillNFT contract loaded at <code>0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0</code>.</span>
+            </div>
+            <div class="log-entry">
+              <span class="log-time">[18:50:07]</span>
+              <span>SkillVault contract loaded at <code>0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9</code>.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Contract Code Switcher & Security Architecture -->
+      <div class="card code-card">
+        <div class="card-header">
+          <div class="card-title">
+            <i class="fa-solid fa-file-code"></i>
+            <h3>Smart Contract Architectures</h3>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" data-contract="nft">SkillNFT.sol</button>
+            <button class="code-tab" data-contract="vault">SkillVault.sol</button>
+            <button class="code-tab" data-contract="audit">Security Audit</button>
+          </div>
+        </div>
+
+        <div class="code-viewer-wrap">
+          <div class="code-action-bar">
+            <span class="code-lang" id="code-lang-label">Solidity ^0.8.20 (ERC-721)</span>
+            <button class="btn-copy-code" id="btn-copy-code"><i class="fa-regular fa-copy"></i> Copy</button>
+          </div>
+          <pre class="code-block"><code id="code-content">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "./IERC721.sol";
+
+/**
+ * @title SkillNFT
+ * @dev Implementation of an ERC-721 Non-Fungible Token standard for Web3 Internship Skill Badges.
+ */
+contract SkillNFT is IERC721 {
+    string public name;
+    string public symbol;
+    address public owner;
+    uint256 public nextTokenId;
+
+    mapping(uint256 => address) private _owners;
+    mapping(address => uint256) private _balances;
+    mapping(uint256 => string) private _tokenURIs;
+
+    event NFTMinted(uint256 indexed tokenId, address indexed recipient, string tokenURI);
+    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "SkillNFT: caller is not the contract owner");
+        _;
+    }
+
+    constructor(string memory _name, string memory _symbol) {
+        name = _name;
+        symbol = _symbol;
+        owner = msg.sender;
+        nextTokenId = 1;
+        emit OwnershipTransferred(address(0), msg.sender);
+    }
+
+    function mintNFT(address recipient, string memory _tokenURI) external onlyOwner returns (uint256) {
+        require(recipient != address(0), "SkillNFT: mint to zero address rejected");
+        require(bytes(_tokenURI).length > 0, "SkillNFT: empty metadata URI rejected");
+
+        uint256 tokenId = nextTokenId;
+        nextTokenId++;
+
+        _owners[tokenId] = recipient;
+        _balances[recipient]++;
+        _tokenURIs[tokenId] = _tokenURI;
+
+        emit NFTMinted(tokenId, recipient, _tokenURI);
+        emit Transfer(address(0), recipient, tokenId);
+        return tokenId;
+    }
+
+    function tokenURI(uint256 tokenId) external view override returns (string memory) {
+        require(_owners[tokenId] != address(0), "SkillNFT: URI query for nonexistent token");
+        return _tokenURIs[tokenId];
+    }
+}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Curriculum Modules Summary -->
+    <section class="card modules-card">
+      <div class="card-header">
+        <div class="card-title">
+          <i class="fa-solid fa-list-check"></i>
+          <h3>Week 3 Deliverables Summary</h3>
+        </div>
+        <span class="badge">Skill Set Go Handbook</span>
+      </div>
+
+      <div class="modules-grid">
+        <div class="module-box">
+          <div class="m-badge">Module 01</div>
+          <h4>ERC-721 Token Standard</h4>
+          <p>Full implementation of <code>SkillNFT.sol</code> with IPFS URI certificate badges, ownership verification, and transfer safety checks.</p>
+          <span class="m-path">01/contracts/SkillNFT.sol</span>
+        </div>
+
+        <div class="module-box">
+          <div class="m-badge">Module 02</div>
+          <h4>Smart Contract Interoperability</h4>
+          <p>Engineered <code>SkillVault.sol</code> with multi-token interfaces (<code>ISkillToken</code>, <code>ISkillNFT</code>) and milestone badge awards.</p>
+          <span class="m-path">02/contracts/SkillVault.sol</span>
+        </div>
+
+        <div class="module-box">
+          <div class="m-badge">Module 03</div>
+          <h4>Web3 Frontend Integration</h4>
+          <p>Client DApp powered by Ethers.js v6, reactive wallet connection status, live minting, and deposit tracking.</p>
+          <span class="m-path">03/src/app.js &amp; web3-provider.js</span>
+        </div>
+
+        <div class="module-box">
+          <div class="m-badge">Module 04</div>
+          <h4>Testing &amp; Security Audits</h4>
+          <p>Reentrancy Lock testing (<code>nonReentrant</code>), Checks-Effects-Interactions validation, and Sepolia deployment receipts.</p>
+          <span class="m-path">04/security-audit.md</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container footer-content">
+      <p>Skill Set Go EduTech Blockchain &amp; Web3 Internship — Week 3 Deliverables</p>
+      <p class="author">Developed by <a href="https://github.com/MrHarshalBane" target="_blank">Harshal Uttam Bane</a></p>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast" class="toast hidden">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toast-text">Action executed successfully!</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
